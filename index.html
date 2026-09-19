@@ -1,0 +1,891 @@
+# Unknown-s
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Nafisha 🎀</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&family=Pacifico&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    overflow:hidden;
+    font-family:'Baloo 2',cursive;
+    background:#fff;
+    color:#555;
+}
+
+/* =========================
+   COMMON SCREEN
+========================= */
+
+.screen{
+    position:fixed;
+    inset:0;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+}
+
+.screen.active{
+    display:flex;
+}
+
+.page{
+    width:100%;
+    max-width:430px;
+    min-height:100vh;
+    padding:35px 22px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    position:relative;
+}
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.hearts{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:0;
+}
+
+.heart{
+    position:absolute;
+    bottom:-30px;
+    animation:heartUp linear forwards;
+    opacity:.75;
+}
+
+@keyframes heartUp{
+    0%{
+        transform:translateY(0) rotate(0);
+        opacity:0;
+    }
+    15%{
+        opacity:.8;
+    }
+    100%{
+        transform:translateY(-110vh) rotate(25deg);
+        opacity:0;
+    }
+}
+
+/* =========================
+   INTRO
+========================= */
+
+#intro{
+    background:
+    radial-gradient(circle at 10% 15%,#ffd6e7 0,transparent 22%),
+    radial-gradient(circle at 90% 85%,#e3d4ff 0,transparent 24%),
+    #fff;
+}
+
+.birthdayEmoji{
+    font-size:78px;
+    animation:bounce 2s infinite ease-in-out;
+}
+
+@keyframes bounce{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-12px);}
+}
+
+.smallTitle{
+    margin-top:18px;
+    font-size:14px;
+    letter-spacing:3px;
+    color:#e46a9c;
+    font-weight:600;
+}
+
+.mainTitle{
+    font-family:'Pacifico',cursive;
+    font-size:42px;
+    color:#e14f8b;
+    margin-top:7px;
+}
+
+.introText{
+    margin-top:15px;
+    font-size:17px;
+    line-height:1.5;
+    color:#777;
+}
+
+.startButton{
+    margin-top:30px;
+    border:0;
+    background:#f2679e;
+    color:white;
+    padding:13px 28px;
+    border-radius:30px;
+    font-family:inherit;
+    font-size:16px;
+    cursor:pointer;
+    box-shadow:0 8px 20px rgba(242,103,158,.25);
+    transition:.3s;
+}
+
+.startButton:hover{
+    transform:scale(1.06);
+}
+
+/* =========================
+   BALLOON PAGE
+========================= */
+
+#balloonPage{
+    background:
+    radial-gradient(circle at 15% 15%,#ffe4ef 0,transparent 20%),
+    radial-gradient(circle at 85% 80%,#eee4ff 0,transparent 22%),
+    #fff;
+}
+
+.step{
+    font-size:14px;
+    color:#e46a9c;
+    letter-spacing:2px;
+    margin-bottom:5px;
+}
+
+.balloonHeading{
+    font-size:30px;
+    color:#e44f8b;
+    font-weight:700;
+}
+
+.balloonSub{
+    color:#888;
+    font-size:15px;
+    margin-top:4px;
+}
+
+.balloonArea{
+    width:100%;
+    height:440px;
+    position:relative;
+    margin-top:15px;
+}
+
+/* BALLOON */
+
+.balloon{
+    width:91px;
+    height:112px;
+    border-radius:52% 48% 50% 50%;
+    position:absolute;
+    cursor:pointer;
+    box-shadow:
+        inset -10px -12px 20px rgba(0,0,0,.06),
+        inset 10px 8px 15px rgba(255,255,255,.55),
+        0 8px 18px rgba(0,0,0,.08);
+
+    transition:transform .2s;
+}
+
+.balloon:hover{
+    transform:scale(1.07);
+}
+
+.balloon::before{
+    content:"";
+    position:absolute;
+    width:15px;
+    height:15px;
+    background:inherit;
+    bottom:-5px;
+    left:38px;
+    transform:rotate(45deg);
+}
+
+.balloon::after{
+    content:"";
+    position:absolute;
+    width:1.5px;
+    height:115px;
+    background:#aaa;
+    left:45px;
+    top:106px;
+}
+
+/* shine */
+
+.balloon span{
+    position:absolute;
+    width:18px;
+    height:35px;
+    background:rgba(255,255,255,.55);
+    border-radius:50%;
+    transform:rotate(25deg);
+    top:17px;
+    left:17px;
+}
+
+/* positions */
+
+.blue{
+    background:linear-gradient(145deg,#aee4ff,#55aee9);
+    left:7%;
+    top:45px;
+}
+
+.pink{
+    background:linear-gradient(145deg,#ffd2e4,#f48db6);
+    right:7%;
+    top:45px;
+}
+
+.green{
+    background:linear-gradient(145deg,#c6f3dc,#73cba1);
+    left:23%;
+    top:235px;
+}
+
+.purple{
+    background:linear-gradient(145deg,#e0d3ff,#9e82dc);
+    right:23%;
+    top:235px;
+}
+
+/* POP */
+
+.balloon.popped{
+    animation:popBalloon .45s forwards;
+    pointer-events:none;
+}
+
+@keyframes popBalloon{
+    0%{
+        transform:scale(1);
+        opacity:1;
+    }
+    45%{
+        transform:scale(1.2);
+        opacity:1;
+    }
+    100%{
+        transform:scale(0);
+        opacity:0;
+    }
+}
+
+/* message */
+
+.balloonMessage{
+    position:absolute;
+    left:50%;
+    top:145px;
+    transform:translate(-50%,10px);
+    width:92%;
+    color:#df568d;
+    font-size:21px;
+    line-height:1.35;
+    opacity:0;
+    pointer-events:none;
+    transition:.5s;
+    z-index:5;
+}
+
+.balloonMessage.show{
+    opacity:1;
+    transform:translate(-50%,0);
+}
+
+.popCounter{
+    font-size:13px;
+    color:#aaa;
+}
+
+/* =========================
+   BIRTHDAY SCREEN
+========================= */
+
+#birthdayPage{
+    background:
+    radial-gradient(circle at 20% 20%,#ffd8e8,transparent 22%),
+    radial-gradient(circle at 80% 70%,#ddd0ff,transparent 25%),
+    #fff;
+}
+
+.confetti{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+}
+
+.conf{
+    position:absolute;
+    top:-30px;
+    animation:confettiFall linear forwards;
+}
+
+@keyframes confettiFall{
+    to{
+        transform:translateY(110vh) rotate(720deg);
+    }
+}
+
+.birthdayText{
+    font-family:'Pacifico',cursive;
+    color:#e04f8c;
+    font-size:42px;
+    line-height:1.25;
+}
+
+.name{
+    font-family:'Pacifico',cursive;
+    font-size:45px;
+    color:#9c68d4;
+    margin-top:3px;
+}
+
+.cake{
+    position:relative;
+    width:190px;
+    height:155px;
+    margin:25px auto 10px;
+}
+
+/* cake layers */
+
+.cakeBottom{
+    position:absolute;
+    bottom:0;
+    left:10px;
+    width:170px;
+    height:65px;
+    background:#ffabc9;
+    border-radius:15px 15px 22px 22px;
+    box-shadow:0 7px 0 #e88aaa;
+}
+
+.cakeMiddle{
+    position:absolute;
+    bottom:45px;
+    left:25px;
+    width:140px;
+    height:55px;
+    background:#ffd0df;
+    border-radius:14px 14px 18px 18px;
+}
+
+.icing{
+    position:absolute;
+    bottom:75px;
+    left:24px;
+    width:142px;
+    height:27px;
+    background:white;
+    border-radius:50%;
+}
+
+.icing:after{
+    content:"";
+    position:absolute;
+    left:10px;
+    top:8px;
+    width:120px;
+    height:20px;
+    background:#fff;
+    border-radius:50%;
+}
+
+/* candle */
+
+.candle{
+    position:absolute;
+    width:15px;
+    height:48px;
+    background:#a985e8;
+    border-radius:5px;
+    left:87px;
+    bottom:95px;
+}
+
+.flame{
+    position:absolute;
+    width:20px;
+    height:29px;
+    background:#ffc857;
+    border-radius:50% 50% 50% 5px;
+    transform:rotate(-45deg);
+    left:84px;
+    bottom:135px;
+    animation:flame .6s infinite alternate;
+    box-shadow:0 0 20px rgba(255,194,65,.8);
+}
+
+@keyframes flame{
+    from{transform:rotate(-45deg) scale(1);}
+    to{transform:rotate(-45deg) scale(1.12);}
+}
+
+.birthdayMessage{
+    font-size:17px;
+    line-height:1.6;
+    color:#777;
+    max-width:360px;
+}
+
+/* =========================
+   FINAL PAGE
+========================= */
+
+#finalPage{
+    background:
+    radial-gradient(circle at 15% 20%,#ffe1ed,transparent 23%),
+    radial-gradient(circle at 85% 75%,#e7dcff,transparent 25%),
+    #fff;
+}
+
+.finalEmoji{
+    font-size:85px;
+    animation:bounce 2.5s infinite;
+}
+
+.finalTitle{
+    font-family:'Pacifico',cursive;
+    color:#e04f8c;
+    font-size:38px;
+    margin-top:12px;
+}
+
+.finalCard{
+    margin-top:20px;
+    padding:22px 20px;
+    background:rgba(255,255,255,.82);
+    border-radius:25px;
+    box-shadow:0 12px 35px rgba(180,90,130,.12);
+    font-size:16px;
+    line-height:1.7;
+    color:#666;
+}
+
+.signature{
+    margin-top:15px;
+    color:#d6528a;
+    font-weight:600;
+    font-size:18px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="hearts" id="hearts"></div>
+<div class="confetti" id="confetti"></div>
+
+
+<!-- =====================
+     INTRO
+===================== -->
+
+<section class="screen active" id="intro">
+
+<div class="page">
+
+    <div class="birthdayEmoji">🎂</div>
+
+    <div class="smallTitle">
+        A LITTLE BIRTHDAY SURPRISE
+    </div>
+
+    <div class="mainTitle">
+        For Nafisha
+    </div>
+
+    <p class="introText">
+        Someone special deserves<br>
+        a little extra effort today. 🎀
+    </p>
+
+    <button class="startButton" onclick="openBalloons()">
+        Open Your Surprise 💌
+    </button>
+
+</div>
+
+</section>
+
+
+<!-- =====================
+     BALLOONS
+===================== -->
+
+<section class="screen" id="balloonPage">
+
+<div class="page">
+
+    <div class="step">STEP 01</div>
+
+    <div class="balloonHeading">
+        Pop all 4 balloons 🎈
+    </div>
+
+    <div class="balloonSub">
+        Each balloon has a little birthday message for you.
+    </div>
+
+
+    <div class="balloonArea">
+
+        <div class="balloon blue"
+             onclick="popBalloon(this,0)">
+            <span></span>
+        </div>
+
+        <div class="balloon pink"
+             onclick="popBalloon(this,1)">
+            <span></span>
+        </div>
+
+        <div class="balloon green"
+             onclick="popBalloon(this,2)">
+            <span></span>
+        </div>
+
+        <div class="balloon purple"
+             onclick="popBalloon(this,3)">
+            <span></span>
+        </div>
+
+        <div class="balloonMessage" id="balloonMessage"></div>
+
+    </div>
+
+    <div class="popCounter" id="counter">
+        0 / 4 popped
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =====================
+     BIRTHDAY
+===================== -->
+
+<section class="screen" id="birthdayPage">
+
+<div class="page">
+
+    <div class="birthdayText">
+        Happy Birthday
+    </div>
+
+    <div class="name">
+        Nafisha 🎀
+    </div>
+
+    <div class="cake">
+
+        <div class="cakeBottom"></div>
+        <div class="cakeMiddle"></div>
+        <div class="icing"></div>
+
+        <div class="candle"></div>
+        <div class="flame"></div>
+
+    </div>
+
+    <p class="birthdayMessage">
+        May your day be filled with<br>
+        happiness, laughter and beautiful moments. 💗
+    </p>
+
+    <button class="startButton" onclick="showFinal()">
+        One Last Thing 🌷
+    </button>
+
+</div>
+
+</section>
+
+
+<!-- =====================
+     FINAL
+===================== -->
+
+<section class="screen" id="finalPage">
+
+<div class="page">
+
+    <div class="finalEmoji">
+        💐
+    </div>
+
+    <div class="finalTitle">
+        Happy Birthday, Nafisha!
+    </div>
+
+    <div class="finalCard">
+
+        <p>
+            I hope this little surprise made you smile. 🤍
+        </p>
+
+        <br>
+
+        <p>
+            You are genuinely a wonderful person,
+            and I am really glad to have you as a friend.
+            Some friendships simply become special
+            without even trying too hard. ✨
+        </p>
+
+        <br>
+
+        <p>
+            On your special day, I just wish that
+            you always keep smiling, keep shining,
+            and get everything you truly deserve. 🌸
+        </p>
+
+        <div class="signature">
+            Stay happy & keep smiling, Nafisha. 💗
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<script>
+
+/* =====================
+   BALLOON MESSAGES
+===================== */
+
+const messages = [
+
+    "May your birthday be as beautiful and cheerful as your smile. 🌸",
+
+    "I hope this new year of your life brings you lots of happiness and unforgettable memories. ✨",
+
+    "Keep smiling, keep shining and never stop being the amazing person you are. 🎀",
+
+    "And finally... Happy Birthday, Nafisha! May all your little wishes come true. 💗"
+
+];
+
+let popped = 0;
+
+
+/* =====================
+   OPEN BALLOONS
+===================== */
+
+function openBalloons(){
+
+    document.getElementById("intro")
+        .classList.remove("active");
+
+    setTimeout(()=>{
+
+        document.getElementById("balloonPage")
+            .classList.add("active");
+
+    },300);
+}
+
+
+/* =====================
+   POP BALLOON
+===================== */
+
+function popBalloon(balloon,index){
+
+    if(balloon.classList.contains("popped"))
+        return;
+
+    balloon.classList.add("popped");
+
+    popped++;
+
+    const message =
+        document.getElementById("balloonMessage");
+
+    message.classList.remove("show");
+
+    setTimeout(()=>{
+
+        message.innerHTML =
+            messages[index];
+
+        message.classList.add("show");
+
+    },180);
+
+    document.getElementById("counter").innerHTML =
+        popped + " / 4 popped";
+
+    createHearts(7);
+
+    if(popped === 4){
+
+        setTimeout(()=>{
+
+            document.getElementById("balloonPage")
+                .classList.remove("active");
+
+            document.getElementById("birthdayPage")
+                .classList.add("active");
+
+            createConfetti(80);
+
+        },1700);
+
+    }
+}
+
+
+/* =====================
+   FINAL PAGE
+===================== */
+
+function showFinal(){
+
+    document.getElementById("birthdayPage")
+        .classList.remove("active");
+
+    document.getElementById("finalPage")
+        .classList.add("active");
+
+    createConfetti(120);
+    createHearts(25);
+}
+
+
+/* =====================
+   HEARTS
+===================== */
+
+function createHearts(amount){
+
+    const box =
+        document.getElementById("hearts");
+
+    const symbols =
+        ["♡","♥","💗","💖","🌸"];
+
+    for(let i=0;i<amount;i++){
+
+        const heart =
+            document.createElement("div");
+
+        heart.className="heart";
+
+        heart.innerHTML =
+            symbols[
+                Math.floor(
+                    Math.random()*symbols.length
+                )
+            ];
+
+        heart.style.left =
+            Math.random()*100+"%";
+
+        heart.style.fontSize =
+            (12+Math.random()*15)+"px";
+
+        heart.style.animationDuration =
+            (4+Math.random()*4)+"s";
+
+        box.appendChild(heart);
+
+        setTimeout(()=>{
+            heart.remove();
+        },8000);
+    }
+}
+
+
+/* =====================
+   CONFETTI
+===================== */
+
+function createConfetti(amount){
+
+    const box =
+        document.getElementById("confetti");
+
+    const shapes =
+        ["●","■","◆","✦","♥"];
+
+    for(let i=0;i<amount;i++){
+
+        const piece =
+            document.createElement("div");
+
+        piece.className="conf";
+
+        piece.innerHTML =
+            shapes[
+                Math.floor(
+                    Math.random()*shapes.length
+                )
+            ];
+
+        piece.style.left =
+            Math.random()*100+"%";
+
+        piece.style.fontSize =
+            (8+Math.random()*13)+"px";
+
+        piece.style.animationDuration =
+            (3+Math.random()*4)+"s";
+
+        piece.style.animationDelay =
+            Math.random()*2+"s";
+
+        piece.style.color =
+            [
+                "#ff8fb8",
+                "#9fc9ff",
+                "#b9e6c8",
+                "#c7a8ef",
+                "#ffd27d"
+            ][Math.floor(Math.random()*5)];
+
+        box.appendChild(piece);
+
+        setTimeout(()=>{
+            piece.remove();
+        },8000);
+    }
+}
+
+
+/* background hearts */
+
+setInterval(()=>{
+    createHearts(1);
+},1200);
+
+</script>
+
+</body>
+</html>
